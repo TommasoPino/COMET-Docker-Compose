@@ -11,7 +11,7 @@ services:
       cdp4:
         aliases:
           - cdp4-postgresql
-    container_name: cdp4-test-database-community-edition
+    container_name: cdp4-database-community-edition
     restart: always
     ports:
       - '${DB_TESTHOSTPORT}:5432'
@@ -21,9 +21,30 @@ services:
       - cdptestdbvolume:/var/lib/postgresql/data
       - cdptestdblogs:/logs
 
+  cdp4_webservices:
+    hostname: cdp4-webservices
+    image: rheagroup/cdp4-services-community-edition:latest
+    restart: always
+    networks:
+      cdp4:
+        aliases:
+          - cdp4-webservices
+    depends_on:
+      - cdp4_db
+    ports:
+      - "${WEBSERVICES_HOSTPORT}:5000"
+    expose:
+      - '5000'
+    volumes:
+      - cdpwslogs:/app/logs
+      - cdpwsstorage:/app/storage
+      - cdpwsupload:/app/upload
 networks:
   cdp4:
 
 volumes:
   cdptestdbvolume:
   cdptestdblogs:
+  cdpwslogs:
+  cdpwsstorage:
+  cdpwsupload:

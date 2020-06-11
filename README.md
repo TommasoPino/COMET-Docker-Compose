@@ -22,29 +22,21 @@ Available commands:
 - `reboot` - performs the `down` and `up` commands in sequence.
 - `rebuild` - performs the `down` and `rebuild` commands in sequence.
 
-### For Developers
-
-Runs only the database, webservices should be running alongside in e.g. Visual Studio
-
-- `dev` - Spins up database only.
-- `devbg` - Same as `dev` but the container is run in background mode.
-- `devdown` - stops and removes the container. Volume information is not lost.
-
-### For Testing
-
-Runs only the bare database, webservices should be running alongside in e.g. Visual Studio. To be used to execute [ecss-10-25-annexc-integration-tests](https://github.com/RHEAGROUP/ecss-10-25-annexc-integration-tests)
-
-- `devtest` - Spins up bare database only.
-- `devtestbg` - Same as `devtest` but the container is run in background mode.
-- `devtestdown` - stops and removes the container. Volume information is not lost.
-
 ### For Webservices Release Candidates
 
 Runs both the latest database and the latest available [release candidate of webservices](https://github.com/RHEAGROUP/CDP4-WebServices-Community-Edition/packages/265915)
 
-- `devtest` - Spins up bare database only.
-- `devtestbg` - Same as `devtest` but the container is run in background mode.
-- `devtestdown` - stops and removes the container. Volume information is not lost.
+- `rc` - Spins up bare database only.
+- `rcdown` - stops and removes the container. Volume information is not lost.
+
+### For Test Database
+
+Runs both the latest test database and the latest available version or release candidate.
+
+- `test` - Spins up bare database and latest release.
+- `testdown` - stops and removes the containers. Volume information is not lost.
+- `testrc` - Spins up bare database and latest release candidate.
+- `testrcdown` - stops and removes the containers. Volume information is not lost.
 
 To verify that the services are running navigate to `localhost:5000/SiteDirectory` you should be prompted for standard credentials which are `admin/pass`.
 
