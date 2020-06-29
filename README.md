@@ -2,6 +2,10 @@
 
 This is the Git repository of the official `CDP4 Community Edition` docker compose scripts. The scripts have been designed in a way that you can spin up various combinations of the CDP4 database and webservices for production,development as well as testing.
 
+## Compatibility
+
+**If you are going to create own variations on these docker-compose files or create your own bear in mind that version `4.0.0` of CDP Webservices does not support database images version higher than `1.3.1`.**
+
 ## Usage
 
 Use the included `compose.bat` script to compose the containers:
@@ -14,10 +18,9 @@ Available commands:
 
 ### For Production
 
-- `build` - (default) pull the latest release images and runs the containers.
+- `up` - (default if no command provided) pull the latest mutually compatible release images and runs the containers.
 - `strt` - starts the containers if they already have been run and stopped.
 - `stp` - stops the running containers without removing them.
-- `up` - runs containers without rebuilding them.
 - `down` - stops and removes the containers. Volume information is not lost.
 - `reboot` - performs the `down` and `up` commands in sequence.
 - `rebuild` - performs the `down` and `rebuild` commands in sequence.
@@ -33,7 +36,7 @@ Runs both the latest database and the latest available [release candidate of web
 
 Runs both the latest test database and the latest available version or release candidate.
 
-- `test` - Spins up bare database and latest release.
+- `test` - Spins up bare database and latest compatible release.
 - `testdown` - stops and removes the containers. Volume information is not lost.
 - `testrc` - Spins up bare database and latest release candidate.
 - `testrcdown` - stops and removes the containers. Volume information is not lost.
