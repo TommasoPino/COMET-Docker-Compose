@@ -32,6 +32,7 @@ START /B docker-compose stop
 GOTO End
 
 :Up
+START /B docker-compose down --remove-orphans
 START /B docker-compose up -d
 GOTO End
 
