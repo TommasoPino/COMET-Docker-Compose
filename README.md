@@ -4,7 +4,7 @@ This is the Git repository of the official `CDP4 Community Edition` docker compo
 
 ## Compatibility
 
-**If you are going to create own variations on these docker-compose files or create your own bear in mind that version `4.0.0` of CDP Webservices does not support database images version higher than `1.3.1`.**
+**If you are going to create your own variations on these docker-compose files or create your own, bear in mind that version `4.0.0` of CDP Webservices does not support database images version higher than `1.3.1`.**
 
 ## Usage
 
