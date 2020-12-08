@@ -8,7 +8,7 @@ This is the Git repository of the official `CDP4 Community Edition` docker compo
 
 ## Usage
 
-Use the included `compose.bat` script to compose the containers:
+Use the included `compose.bat` (or `compose.sh` if you are on a Linux system) script to compose the containers:
 
 ```
 C:\path\to\CDP4-Docker-Compose>compose.bat [command]
