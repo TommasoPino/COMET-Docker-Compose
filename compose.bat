@@ -28,25 +28,25 @@ START /B docker-compose start
 GOTO End
 
 :Stp
-START /B docker-compose stop
+CALL docker-compose stop
 GOTO End
 
 :Up
-START /B docker-compose down --remove-orphans
+CALL docker-compose down --remove-orphans
 START /B docker-compose up -d
 GOTO End
 
 :Down
-START /B docker-compose down --remove-orphans
+CALL docker-compose down --remove-orphans
 GOTO End
 
 :Reboot
-START /B docker-compose down
+CALL docker-compose down
 START /B docker-compose up -d
 GOTO End
 
 :Rc
-START /B docker-compose -f docker-compose-rc.yml down --remove-orphans
+CALL docker-compose -f docker-compose-rc.yml down --remove-orphans
 START /B docker-compose -f docker-compose-rc.yml up -d
 GOTO End
 
@@ -55,21 +55,21 @@ START /B docker-compose -f docker-compose-rc.yml down --remove-orphans
 GOTO End
 
 :TestRc
-START /B docker-compose -f docker-compose-rc-test.yml down --remove-orphans
+CALL docker-compose -f docker-compose-rc-test.yml down --remove-orphans
 START /B docker-compose -f docker-compose-rc-test.yml up -d
 GOTO End
 
 :TestRcDown
-START /B docker-compose -f docker-compose-rc-test.yml down --remove-orphans
+START docker-compose -f docker-compose-rc-test.yml down --remove-orphans
 GOTO End
 
 :Test
-START /B docker-compose -f docker-compose-test.yml down --remove-orphans
+CALL docker-compose -f docker-compose-test.yml down --remove-orphans
 START /B docker-compose -f docker-compose-test.yml up -d
 GOTO End
 
 :TestDown
-START /B docker-compose -f docker-compose-test.yml down --remove-orphans
+START docker-compose -f docker-compose-test.yml down --remove-orphans
 GOTO End
 
 :End
