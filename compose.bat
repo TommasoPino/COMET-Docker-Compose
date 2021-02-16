@@ -24,7 +24,7 @@ IF %1==testdown GOTO TestDown
 GOTO End
 
 :Strt
-START /B docker-compose start
+CALL docker-compose start
 GOTO End
 
 :Stp
@@ -33,7 +33,7 @@ GOTO End
 
 :Up
 CALL docker-compose down --remove-orphans
-START /B docker-compose up -d
+CALL docker-compose up -d
 GOTO End
 
 :Down
@@ -42,34 +42,34 @@ GOTO End
 
 :Reboot
 CALL docker-compose down
-START /B docker-compose up -d
+CALL docker-compose up -d
 GOTO End
 
 :Rc
 CALL docker-compose -f docker-compose-rc.yml down --remove-orphans
-START /B docker-compose -f docker-compose-rc.yml up -d
+CALL docker-compose -f docker-compose-rc.yml up -d
 GOTO End
 
 :RcDown
-START /B docker-compose -f docker-compose-rc.yml down --remove-orphans
+CALL docker-compose -f docker-compose-rc.yml down --remove-orphans
 GOTO End
 
 :TestRc
 CALL docker-compose -f docker-compose-rc-test.yml down --remove-orphans
-START /B docker-compose -f docker-compose-rc-test.yml up -d
+CALL docker-compose -f docker-compose-rc-test.yml up -d
 GOTO End
 
 :TestRcDown
-START docker-compose -f docker-compose-rc-test.yml down --remove-orphans
+CALL docker-compose -f docker-compose-rc-test.yml down --remove-orphans
 GOTO End
 
 :Test
 CALL docker-compose -f docker-compose-test.yml down --remove-orphans
-START /B docker-compose -f docker-compose-test.yml up -d
+CALL docker-compose -f docker-compose-test.yml up -d
 GOTO End
 
 :TestDown
-START docker-compose -f docker-compose-test.yml down --remove-orphans
+CALL docker-compose -f docker-compose-test.yml down --remove-orphans
 GOTO End
 
 :End
