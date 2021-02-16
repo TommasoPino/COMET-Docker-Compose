@@ -7,6 +7,8 @@ set WEBSERVICES_HOSTPORT=5000
 
 IF %1.==. GOTO Up
 IF %1==up GOTO Up
+IF %1==update GOTO Update
+IF %1==rcupdate GOTO RcUpdate
 IF %1==down GOTO Down
 IF %1==strt GOTO Strt
 IF %1==stp GOTO Stp
@@ -36,6 +38,11 @@ CALL docker-compose down --remove-orphans
 CALL docker-compose up -d
 GOTO End
 
+:Update
+CALL docker-compose down --remove-orphans
+CALL docker-compose pull
+GOTO End
+
 :Down
 CALL docker-compose down --remove-orphans
 GOTO End
@@ -48,6 +55,11 @@ GOTO End
 :Rc
 CALL docker-compose -f docker-compose-rc.yml down --remove-orphans
 CALL docker-compose -f docker-compose-rc.yml up -d
+GOTO End
+
+:RcUpdate
+CALL docker-compose -f docker-compose-rc.yml down --remove-orphans
+CALL docker-compose -f docker-compose-rc.yml pull
 GOTO End
 
 :RcDown

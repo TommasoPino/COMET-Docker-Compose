@@ -21,6 +21,7 @@ Available commands:
 - `up` - (default if no command provided) pull the latest mutually compatible release images and runs the containers.
 - `strt` - starts the containers if they already have been run and stopped.
 - `stp` - stops the running containers without removing them.
+- `update` - updates the images to latest stable release. Must be followed bu `up` command to start again.
 - `down` - stops and removes the containers. Volume information is not lost.
 - `reboot` - performs the `down` and `up` commands in sequence.
 - `rebuild` - performs the `down` and `rebuild` commands in sequence.
@@ -29,8 +30,9 @@ Available commands:
 
 Runs both the latest database and the latest available [release candidate of webservices](https://github.com/RHEAGROUP/CDP4-WebServices-Community-Edition/packages/265915)
 
-- `rc` - Spins up bare database only.
-- `rcdown` - stops and removes the container. Volume information is not lost.
+- `rc` - Spins up the release candidate version of the services.
+- `rcupdate` - updates the images to latest tagged release candidate. Must be followed bu `up` command to start again.
+- `rcdown` - stops and removes the containers. Volume information is not lost.
 
 ### For Test Database
 

@@ -20,6 +20,11 @@ up() {
 	docker-compose up -d
 }
 
+update() {
+	docker-compose down --remove-orphans
+	docker-compose pull
+}
+
 down() {
 	docker-compose down --remove-orphans
 }
@@ -32,6 +37,11 @@ reboot() {
 rc() {
 	docker-compose -f docker-compose-rc.yml down --remove-orphans
 	docker-compose -f docker-compose-rc.yml up -d
+}
+
+rcupdate() {
+	docker-compose -f docker-compose-rc.yml down --remove-orphans
+	docker-compose -f docker-compose-rc.yml pull
 }
 
 rcdown() {
@@ -60,6 +70,9 @@ case $1 in
 	up)
 		up
 		;;
+	update)
+		update
+		;;
 	down)
 		down
 		;;
@@ -74,6 +87,9 @@ case $1 in
 		;;
 	rc)
 		rc
+		;;
+	rcupdate)
+		rcupdate
 		;;
 	rcdown)
 		rcdown
