@@ -1,17 +1,19 @@
+> COMET is the new name for what was previously called the CDP4. We are transitioning the applications and software libraries. The code and documentation will still refer to CDP4 in a number of places while we are updating.
+
 # Introduction
 
-This is the Git repository of the official `CDP4 Community Edition` docker compose scripts. The scripts have been designed in a way that you can spin up various combinations of the CDP4 database and webservices for production,development as well as testing.
+This is the Git repository of the official `COMET Community Edition` docker compose scripts. The scripts have been designed in a way that you can spin up various combinations of the COMET database and webservices for production,development as well as testing.
 
 ## Compatibility
 
-**If you are going to create your own variations on these docker-compose files or create your own, bear in mind that version `4.0.0` of CDP Webservices does not support database images version higher than `1.3.1`.**
+**If you are going to create your own variations on these docker-compose files or create your own, bear in mind that version `4.0.0` of COMET Webservices does not support database images version higher than `1.3.1`.**
 
 ## Usage
 
 Use the included `compose.bat` (or `compose.sh` if you are on a Linux system) script to compose the containers:
 
 ```
-C:\path\to\CDP4-Docker-Compose>compose.bat [command]
+C:\path\to\COMET-Docker-Compose>compose.bat [command]
 ```
 
 Available commands:
@@ -28,7 +30,7 @@ Available commands:
 
 ### For Webservices Release Candidates
 
-Runs both the latest database and the latest available [release candidate of webservices](https://github.com/RHEAGROUP/CDP4-WebServices-Community-Edition/packages/265915)
+Runs both the latest database and the latest available [release candidate of webservices](https://github.com/RHEAGROUP/COMET-WebServices-Community-Edition/packages/265915)
 
 - `rc` - Spins up the release candidate version of the services.
 - `rcupdate` - updates the images to latest tagged release candidate. Must be followed bu `up` command to start again.
@@ -47,4 +49,4 @@ To verify that the services are running navigate to `localhost:5000/SiteDirector
 
 ## License
 
-The CDP4 Web Services Community Edition is licensed under the [AGPL license](LICENSE). Each docker container grants additional permission under GNU GPL version 3 section 7. See the license files in the image specific folders.
+The COMET Web Services Community Edition is licensed under the [AGPL license](LICENSE). Each docker container grants additional permission under GNU GPL version 3 section 7. See the license files in the image specific folders.
