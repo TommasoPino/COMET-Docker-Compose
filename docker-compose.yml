@@ -39,6 +39,8 @@ services:
       - cdpwslogs:/app/logs
       - cdpwsstorage:/app/storage
       - cdpwsupload:/app/upload
+      - cdpwsconfig:/app
+
 networks:
   cdp4:
 
@@ -48,3 +50,4 @@ volumes:
   cdpwslogs:
   cdpwsstorage:
   cdpwsupload:
+  cdpwsconfig:
