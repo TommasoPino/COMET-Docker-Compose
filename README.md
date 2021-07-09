@@ -28,6 +28,8 @@ Available commands:
 - `reboot` - performs the `down` and `up` commands in sequence.
 - `rebuild` - performs the `down` and `rebuild` commands in sequence.
 
+To verify that the services are running navigate to `localhost:5000/SiteDirectory` you should be prompted for standard credentials which are `admin/pass`.
+
 ### For Webservices Release Candidates
 
 Runs both the latest database and the latest available [release candidate of webservices](https://github.com/RHEAGROUP/COMET-WebServices-Community-Edition/packages/265915)
@@ -45,7 +47,7 @@ Runs both the latest test database and the latest available version or release c
 - `testrc` - Spins up bare database and latest release candidate.
 - `testrcdown` - stops and removes the containers. Volume information is not lost.
 
-To verify that the services are running navigate to `localhost:5000/SiteDirectory` you should be prompted for standard credentials which are `admin/pass`.
+Test databases contain no data and are purely intended to be used with the https://github.com/RHEAGROUP/ecss-10-25-annexc-integration-tests
 
 ## License
 
