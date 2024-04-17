@@ -1,20 +1,15 @@
 version: '3.8'
 services:
-  cdp4_db:
+  cdp4-database-community-edition:
     image: rheagroup/cdp4-database-community-edition:latest
     hostname: cdp4-postgresql
     command: postgres -c max_locks_per_transaction=1024
     environment:
-      - POSTGRES_PASSWORD=${DB_POSTGRESPASSWORD}
+      - POSTGRES_PASSWORD=pass
       - POSTGRES_USER=postgres
     networks:
-      cdp4:
-        aliases:
-          - cdp4-postgresql
-    container_name: cdp4-database-community-edition
+      - docker-internal
     restart: always
-    ports:
-      - '${DB_HOSTPORT}:5432'
     expose:
       - '5432'
     volumes:
@@ -26,13 +21,14 @@ services:
     image: rheagroup/cdp4-services-community-edition:latest
     restart: always
     networks:
-      cdp4:
-        aliases:
-          - cdp4-webservices
+      - docker-internal
+      - internet
+          # aliases:
+          #   - cdp4-webservices
     depends_on:
-      - cdp4_db
+      - cdp4-database-community-edition
     ports:
-      - "${WEBSERVICES_HOSTPORT}:5000"
+      - "5000:5000"
     expose:
       - '5000'
     volumes:
@@ -40,7 +36,11 @@ services:
       - cdpwsstorage:/app/storage
       - cdpwsupload:/app/upload
 networks:
-  cdp4:
+  docker-internal:
+    driver: bridge
+    internal: true
+  internet:
+    driver: bridge
 
 volumes:
   cdpdbvolume96:
